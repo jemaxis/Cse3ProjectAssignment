@@ -40,21 +40,21 @@ The following describes the steps of tidying the data:
 
 5.  Based on the "features.mean.std.indices" vector in the previous step, to extract only the related measurements from the features dataframe created in the previous step known as "features.label". The result is a vector of character, "mean.std.labels", of the features required for the mean and standard deviation. To make the variables readable:
 
-	- remove the "()"
+  * remove the "()"
 
-	- replace "std" with "standard.deviation"
+  * replace "std" with "standard.deviation"
 
-	- replace "-" with "."
+  * replace "-" with "."
 
-	- replace "Mag" with "Magnitude"
+  * replace "Mag" with "Magnitude"
 
-	- replace "Acc" with "Accelerometer"
+  * replace "Acc" with "Accelerometer"
 
-	- replace first "f" in each measurement with "frequency"
+  * replace first "f" in each measurement with "frequency"
 
-	- replace first "t" in each measurement with "time"
+  * replace first "t" in each measurement with "time"
 
-Apply the "mean.std.labels" to provide descriptive column names to the "overall.data.mean.std" dataframe.
+  Apply the "mean.std.labels" to provide descriptive column names to the "overall.data.mean.std" dataframe.
 
 7.  Read the activity_labels.txt to construct a dataframe of 2 columns. The first column contains activity ID while second activity description. This activity_labels dataframe is merged with the "overall.data.mean.std" dataframe to obtain descriptive activity data. This completes the process of tidying the data set provided for both train and test sets.
 
