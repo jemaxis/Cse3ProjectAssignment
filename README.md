@@ -5,18 +5,31 @@ Data Scientist Course 3 Data Cleaning Project Assignment
 
 This assignment is based on the data collected through a previous experiment known as Human Activity Recognition Using Smartphones Dataset.  The experiments were carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. 
 
-For each record it is provided:
-======================================
-- Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.
-- Triaxial Angular velocity from the gyroscope. 
-- Its activity label. 
-- An identifier of the subject who carried out the experiment.
-- A 66-feature vector with mean and standard deviation information derived.
- 
 In this assignment, an R script was written to combine the train and test data sets.  This is followed by tidying the data and analysing the average of the mean and standard deviation of the measurements collected from each volunteer (now known as a subject) for each activity they carried out.
 
-The following describes the steps of tidying the data:
+For each record it is provided:
+======================================
+- An identifier of the subject who carried out the experiment.
+- Its activity label. 
+- A 66-feature vector with average mean and average standard deviation information derived.
 
+The following files were used:
+======================================
+- 'features.txt': List of all features.
+
+- 'activity_labels.txt': Links the class labels with their activity name.
+
+- 'train/X_train.txt': Training set.
+
+- 'train/y_train.txt': Training labels.
+
+- 'test/X_test.txt': Test set.
+
+- 'test/y_test.txt': Test labels.
+
+
+The following describes the steps of tidying the data:
+========================================================
 1.  Read train data sets and assemble the measurements taken, participants and activities into a train dataframe. The measurements data has 561 columns corresponding to the total number of measurements shared in the feature.txt file. Both the participants and activities data has a column of data each. Putting all the data together will result a dataframe of 563 columns.  The first 561 columns correspond to the measurements data while the 562nd column represents the activity type and the 563rd column represents the subject.
 
 2.  As described in the previous step, to apply the same treatment to the test data sets. Putting all the data together will result a dataframe of 563 columns. The first 561 columns correspond to the measurements data while the 562nd column represents the activity type and the 563rd column represents the subject.

@@ -83,9 +83,9 @@ features.label <- df_features$V2
 # head(features.label)
 # tail(features.label)
 
-# -- Identify fields with the mean and standard measurements --
-# -- To identify feature variables with char "-mean(" or "-std(" --
-features.mean.std.indices <- grep("-mean\\(|-std\\(",features.label)
+# -- Identify fields with the mean and standard deviation for each measurement --
+# -- To identify feature variables with char "-mean()" or "-std()" --
+features.mean.std.indices <- grep("-mean\\()|-std\\()",features.label)
 # length(grep("-mean\\(|-std\\(",features.label))
 
 # -- To also include columns for activity type and subject (cols 562,563)
@@ -100,28 +100,36 @@ overall.data.mean.std <- overall.data[,c(features.mean.std.indices,562,563)]
 # ==== 
 
 # === Part 3 & 4: ========
-# Use descriptive activity names to name the activities in the data set. 
+# Use descriptive activity names to name the activities in the data set.
+# Appropriately label data set with descriptive variable names.
 # ====================
 
 # --- Obtain activity labels ---
 activity_labels <- read.table("activity_labels.txt",header=F)
-head(activity_labels)
-str(activity_labels)
-names(activity_labels)[1]
+# head(activity_labels)
+# str(activity_labels)
+# names(activity_labels)[1]
 
-#-- Apply measurement labels on combined datat set --
+#-- Apply measurement labels on combined data set --
 # --To obtain training variables --
 mean.std.labels <- as.character(features.label[features.mean.std.indices])
+mean.std.labels <- gsub("-",".",mean.std.labels)
+mean.std.labels <- gsub("std","standard.deviation",mean.std.labels)
+mean.std.labels <- gsub("\\()","",mean.std.labels)
+mean.std.labels <- gsub("Mag","Magnitude",mean.std.labels)
+mean.std.labels <- gsub("Acc","Accelerometer",mean.std.labels)
+mean.std.labels <- gsub("^t","time",mean.std.labels)
+mean.std.labels <- gsub("^f","frequency",mean.std.labels)
 names(overall.data.mean.std)[1:66] <- mean.std.labels
 # names(overall.data.mean.std)
 
 #-- Apply meaningful labels to last 2 columns representing activity and subjects
-names(overall.data.mean.std)[c(67,68)] <- c("activity","subject.ID")
+names(overall.data.mean.std)[c(67,68)] <- c("activity","subject")
 # names(overall.data.mean.std)
 # dim(overall.data.mean.std)
 # names(overall.data.mean.std)
 # factor(overall.data.mean.std$activity)
-# factor(overall.data.mean.std$subject.ID)
+# factor(overall.data.mean.std$subject)
 # head(overall.data.mean.std,n=1)
 
 grep("activity",names(overall.data.mean.std))
@@ -147,9 +155,8 @@ names(overall.data.label)[68] <- "activity"
 # with the average of each variable for each activity and each subject
 # =======================
 
-
 # factivity <- factor(overall.data.label$activity)
-# fsubjectID <- factor(overall.data.label$subject.ID)
+# fsubjectID <- factor(overall.data.label$subject)
 # results<-aggregate(x=overall.data.label,by=list(group.subjectID=fsubjectID,group.activity=factivity),FUN=numcolwise(mean),na.rm=T)
 # dim(results)
 # names(results)
@@ -158,10 +165,10 @@ names(overall.data.label)[68] <- "activity"
 
 # -- Better way to do it --
 library('plyr')
-final.results <- ddply(overall.data.label, .(subject.ID,activity),numcolwise(mean))
+final.results <- ddply(overall.data.label, .(subject,activity),numcolwise(mean))
 dim(final.results)
 names(final.results)
-final.results.ordered <- final.results[order(final.results$subject.ID),]
+final.results.ordered <- final.results[order(final.results$subject),]
 # ==== Part 5 Completed =========
 
 # === Output the result ====
