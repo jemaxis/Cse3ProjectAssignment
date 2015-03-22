@@ -4,6 +4,14 @@ Data Scientist Course 3 Data Cleaning Project Assignment
 =========================================================
 
 This assignment is based on the data collected through a previous experiment known as Human Activity Recognition Using Smartphones Dataset.  The experiments were carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. 
+
+For each record it is provided:
+======================================
+- Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.
+- Triaxial Angular velocity from the gyroscope. 
+- Its activity label. 
+- An identifier of the subject who carried out the experiment.
+- A 66-feature vector with mean and standard deviation information derived.
  
 In this assignment, an R script was written to combine the train and test data sets.  This is followed by tidying the data and analysing the average of the mean and standard deviation of the measurements collected from each volunteer (now known as a subject) for each activity they carried out.
 
