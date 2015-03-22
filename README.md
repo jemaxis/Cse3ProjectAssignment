@@ -1,6 +1,5 @@
-﻿# Cse3ProjectAssignment
-=========================================================
-Data Scientist Course 3 Data Cleaning Project Assignment
+﻿=========================================================
+##Data Scientist Course 3 Data Cleaning Project Assignment
 =========================================================
 
 This assignment is based on the data collected through a previous experiment known as Human Activity Recognition Using Smartphones Dataset.  The experiments were carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. 
