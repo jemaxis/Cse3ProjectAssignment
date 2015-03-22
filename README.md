@@ -7,8 +7,8 @@ In this assignment, an R script was written to combine the train and test data s
 ##For each record it is provided:
 
 - An identifier of the subject who carried out the experiment.
-- Its activity label. 
-- A 66-feature vector with average mean and average standard deviation information derived.
+- Activity description. 
+- The average of each of the 66 feature variables (mean and standard deviation measurements) calculated against each subject for each activity carried out.
 
 ##The following files were used:
 
@@ -27,7 +27,7 @@ In this assignment, an R script was written to combine the train and test data s
 
 ##The following describes the steps of tidying the data:
 
-1.  Read train data sets and assemble the measurements taken, participants and activities into a train dataframe. The measurements data has 561 columns corresponding to the total number of measurements shared in the feature.txt file. Both the participants and activities data has a column of data each. Putting all the data together will result a dataframe of 563 columns.  The first 561 columns correspond to the measurements data while the 562nd column represents the activity type and the 563rd column represents the subject.
+1.  Read train data sets and assemble the measurements taken, participants and activities into a train dataframe. The measurements data has 561 columns corresponding to the total number of measurements shared in the feature.txt file. Both the participants and activities data has a column of data each. Putting all the data together will result a dataframe of 563 columns.  The first 561 columns correspond to the measurement data while the 562nd column represents the activity type and the 563rd column represents the subject.
 
 2.  As described in the previous step, to apply the same treatment to the test data sets. Putting all the data together will result a dataframe of 563 columns. The first 561 columns correspond to the measurements data while the 562nd column represents the activity type and the 563rd column represents the subject.
 
@@ -55,4 +55,4 @@ In this assignment, an R script was written to combine the train and test data s
 
 7.  Read the activity_labels.txt to construct a dataframe of 2 columns. The first column contains activity ID while second activity description. This activity_labels dataframe is merged with the "overall.data.mean.std" dataframe to obtain descriptive activity data. This completes the process of tidying the data set provided for both train and test sets.
 
-8.  To create a second independent tidy data set from the combined data set, the data sets were grouped by each subject and activity with the corresponding measurements averaged. The resultant dataframe was ordered by subject and written into a file called "Cse3ProjWorkResult.txt". 
+8.  To create a second independent tidy data set from the combined data set, the data set were grouped by each subject and activity with the corresponding measurements averaged. The resultant dataframe was ordered by subject and written into a file called "Cse3ProjWorkResult.txt". 
