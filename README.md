@@ -39,15 +39,23 @@ The following describes the steps of tidying the data:
 4.  Read the features.txt data to analyse the types of measurements that were taken and to identify those with.  Filter out only the mean and standard deviation of each measurement captured and store the indices returned in a vector known as "features.mean.std.indices". This vector of indices is then used to extract the required mean and standard measurements by subsetting from the overall data set. In addition, the columns for both the activity and subject are also extracted. The subsequent dataframe created is known as "overall.data.mean.std".
 
 5.  Based on the "features.mean.std.indices" vector in the previous step, to extract only the related measurements from the features dataframe created in the previous step known as "features.label". The result is a vector of character, "mean.std.labels", of the features required for the mean and standard deviation. To make the variables readable:
-- remove the "()"
-- replace "std" with "standard.deviation"
-- replace "-" with "."
-- replace "Mag" with "Magnitude"
-- replace first "f" in each measurement with "frequency"
-- replace first "t" in each measurement with "time"
+
+	- remove the "()"
+
+	- replace "std" with "standard.deviation"
+
+	- replace "-" with "."
+
+	- replace "Mag" with "Magnitude"
+
+	- replace "Acc" with "Accelerometer"
+
+	- replace first "f" in each measurement with "frequency"
+
+	- replace first "t" in each measurement with "time"
 
 Apply the "mean.std.labels" to provide descriptive column names to the "overall.data.mean.std" dataframe.
 
-6.  Read the activity_labels.txt to construct a dataframe of 2 columns. The first column contains activity ID while second activity description. This activity_labels dataframe is merged with the "overall.data.mean.std" dataframe to obtain descriptive activity data. This completes the process of tidying the data set provided for both train and test sets.
+7.  Read the activity_labels.txt to construct a dataframe of 2 columns. The first column contains activity ID while second activity description. This activity_labels dataframe is merged with the "overall.data.mean.std" dataframe to obtain descriptive activity data. This completes the process of tidying the data set provided for both train and test sets.
 
-7.  To create a second independent tidy data set from the combined data set, the data sets were grouped by each subject and activity with the corresponding measurements averaged. The resultant dataframe was ordered by subject and written into a file called "Cse3ProjWorkResult.txt". 
+8.  To create a second independent tidy data set from the combined data set, the data sets were grouped by each subject and activity with the corresponding measurements averaged. The resultant dataframe was ordered by subject and written into a file called "Cse3ProjWorkResult.txt". 
